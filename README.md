@@ -5,7 +5,7 @@ Has no configuration atm.
 
 Use it as preloader. It will generate `.css.d.ts` files near the `.css`
 
-```javascipt
+```js
 
 const settings = {
   // ...
