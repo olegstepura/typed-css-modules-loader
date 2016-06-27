@@ -2,12 +2,16 @@ var DtsCreator = require('typed-css-modules');
 
 var creator = new DtsCreator();
 
-module.exports = function(input, map) {
+module.exports = function(source, map) {
   this.cacheable && this.cacheable();
   var callback = this.async();
-  creator.create(this.resourcePath).then(content => {
+  
+  // creator.create(..., source) tells the module to operate on the
+  // source variable. Check API for more details.
+  creator.create(this.resourcePath, source).then(content => {
     content.writeFile().then(_ => {
-      callback(null, input, map);
+      callback(null, source, map);
     });
   });
 };
+

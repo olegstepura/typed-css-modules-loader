@@ -3,7 +3,8 @@
 Simplest webpack loader for https://github.com/Quramy/typed-css-modules
 Has no configuration atm.
 
-Use it as preloader. It will generate `.css.d.ts` files near the `.css`
+I suggest using it as preloader. It will generate `.css.d.ts` files near the `.css`
+Please take a look at [this discussion](https://github.com/Quramy/typed-css-modules/issues/2) to make a decision.
 
 ```js
 
