@@ -16,7 +16,7 @@
     "css-modules"
   ],
   "peerDependencies": {
-    "typed-css-modules": "latest"
+    "typed-css-modules": "^0.1.10"
   },
   "author": "Oleg Stepura",
   "license": "MIT",
