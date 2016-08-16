@@ -24,7 +24,7 @@ const settings = {
         exclude: /node_modules/,
         loader: 'typed-css-modules'
         // or in case you want to use parameters:
-        // loader: 'typed-css-modules?option.outDir=/tmp'
+        // loader: 'typed-css-modules?outDir=/tmp'
       }
     ],
   }
