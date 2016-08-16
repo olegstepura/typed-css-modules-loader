@@ -22,7 +22,9 @@ const settings = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'typed-css-modules-loader'
+        loader: 'typed-css-modules'
+        // or in case you want to use parameters:
+        // loader: 'typed-css-modules?option.outDir=/tmp'
       }
     ],
   }
