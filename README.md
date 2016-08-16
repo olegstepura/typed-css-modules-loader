@@ -7,8 +7,8 @@ will generate `.css.d.ts` files near the `.css`. Please take a look at
 [this discussion](https://github.com/Quramy/typed-css-modules/issues/2) to make a decision.
 
 You can affect how `typed-css-modules` behaves by using query parameters. The loader
-will pass on any query parameters you send give it to the constructor of the DtsCreator
-class. For more info on available options, have a look at the
+will pass any query parameters you specify to the constructor of the `DtsCreator`
+class. For more info on available options, please take a look here:
 [DtsCreator constructor](https://github.com/Quramy/typed-css-modules#new-dtscreatoroption).
 
 
