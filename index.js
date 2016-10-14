@@ -21,6 +21,9 @@ module.exports = function(source, map) {
   // source variable. Check API for more details.
   creator.create(this.resourcePath, source).then(content => {
     content.writeFile().then(_ => {
+      // by emitting a dummy file for webpack we'll ensure that tsc actually
+      // knows it needs this file.
+      this.emitFile(content.outputFilePath, "");
       callback(null, source, map);
     });
   });
