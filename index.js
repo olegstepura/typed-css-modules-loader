@@ -20,6 +20,8 @@ module.exports = function(source, map) {
   // creator.create(..., source) tells the module to operate on the
   // source variable. Check API for more details.
   creator.create(this.resourcePath, source).then(content => {
+    // Emit the created content as well
+    this.emitFile(this.resourcePath + '.d.ts', content.contents || ['']);
     content.writeFile().then(_ => {
       callback(null, source, map);
     });
