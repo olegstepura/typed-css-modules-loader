@@ -15,15 +15,13 @@
     "typed",
     "css-modules"
   ],
-  "peerDependencies": {
-    "typed-css-modules": "^0.2.0"
-  },
   "author": "Oleg Stepura",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/olegstepura/typed-css-modules-loader/issues"
   },
   "dependencies": {
-    "loader-utils": "^0.2.15"
+    "loader-utils": "^0.2.15",
+    "typed-css-modules": "^0.2.0"
   }
 }
