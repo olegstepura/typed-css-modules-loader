@@ -16,7 +16,7 @@
     "css-modules"
   ],
   "peerDependencies": {
-    "typed-css-modules": "^0.1.10"
+    "typed-css-modules": "^0.2.0"
   },
   "author": "Oleg Stepura",
   "license": "MIT",
@@ -24,7 +24,6 @@
     "url": "https://github.com/olegstepura/typed-css-modules-loader/issues"
   },
   "dependencies": {
-    "loader-utils": "^0.2.15",
-    "object-assign": "^4.1.0"
+    "loader-utils": "^0.2.15"
   }
 }

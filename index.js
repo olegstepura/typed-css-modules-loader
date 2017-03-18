@@ -1,6 +1,5 @@
 var DtsCreator = require('typed-css-modules');
 var loaderUtils = require('loader-utils');
-var objectAssign = require('object-assign');
 
 module.exports = function(source, map) {
   this.cacheable && this.cacheable();
@@ -12,7 +11,7 @@ module.exports = function(source, map) {
   var queryOptions = loaderUtils.parseQuery(this.query);
   var options;
   if (queryOptions) {
-    options = objectAssign({}, queryOptions);
+    options = Object.assign({}, queryOptions);
   }
 
   var creator = new DtsCreator(options);
@@ -25,4 +24,3 @@ module.exports = function(source, map) {
     });
   });
 };
-
