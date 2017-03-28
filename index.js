@@ -3,6 +3,7 @@ var loaderUtils = require('loader-utils');
 
 module.exports = function(source, map) {
   this.cacheable && this.cacheable();
+  this.addDependency(this.resourcePath);
   var callback = this.async();
 
   // Pass on query parameters as an options object to the DtsCreator. This lets
