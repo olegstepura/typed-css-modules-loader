@@ -21,7 +21,7 @@
     "url": "https://github.com/olegstepura/typed-css-modules-loader/issues"
   },
   "dependencies": {
-    "loader-utils": "^0.2.15",
+    "loader-utils": "^1.1.0",
     "typed-css-modules": "^0.2.0"
   }
 }
