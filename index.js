@@ -9,7 +9,7 @@ module.exports = function(source, map) {
   // Pass on query parameters as an options object to the DtsCreator. This lets
   // you change the default options of the DtsCreator and e.g. use a different
   // output folder.
-  var queryOptions = loaderUtils.getOptions(this.query);
+  var queryOptions = loaderUtils.getOptions(this);
   var options;
   if (queryOptions) {
     options = Object.assign({}, queryOptions);
