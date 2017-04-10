@@ -23,6 +23,9 @@ module.exports = function(source, map) {
     // Emit the created content as well
     this.emitFile(content.outputFilePath, content.contents || [''], map);
     content.writeFile().then(_ => {
+      // by emitting a dummy file for webpack we'll ensure that tsc actually
+      // knows it needs this file.
+      this.emitFile(content.outputFilePath, "");
       callback(null, source, map);
     });
   });
