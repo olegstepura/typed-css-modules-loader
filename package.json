@@ -1,6 +1,6 @@
 {
   "name": "typed-css-modules-loader",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Webpack loader for typed-css-modules",
   "main": "index.js",
   "scripts": {
