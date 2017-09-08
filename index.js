@@ -12,8 +12,11 @@ module.exports = function(source, map) {
   // output folder.
   var queryOptions = loaderUtils.getOptions(this);
   var options;
+  var emitFile = true;
   if (queryOptions) {
     options = Object.assign({}, queryOptions);
+    emitFile = !options.noEmit;
+    delete options.noEmit;
   }
 
   var creator = new DtsCreator(options);
@@ -21,8 +24,10 @@ module.exports = function(source, map) {
   // creator.create(..., source) tells the module to operate on the
   // source variable. Check API for more details.
   creator.create(this.resourcePath, source).then(content => {
-    // Emit the created content as well
-    this.emitFile(path.relative(this.options.context, content.outputFilePath), content.contents || [''], map);
+    if (emitFile) {
+        // Emit the created content as well
+        this.emitFile(path.relative(this.options.context, content.outputFilePath), content.contents || [''], map);
+    }
     content.writeFile().then(_ => {
       callback(null, source, map);
     });
