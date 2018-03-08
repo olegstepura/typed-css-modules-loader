@@ -14,7 +14,7 @@ module.exports = function(source, map) {
   var options;
   var emitFile = true;
   if (queryOptions) {
-    options = Object.assign({}, queryOptions);
+    options = Object.assign({ context: process.cwd() }, queryOptions);
     emitFile = !options.noEmit;
     delete options.noEmit;
   }
@@ -26,7 +26,7 @@ module.exports = function(source, map) {
   creator.create(this.resourcePath, source).then(content => {
     if (emitFile) {
         // Emit the created content as well
-        this.emitFile(path.relative(this.options.context, content.outputFilePath), content.contents || [''], map);
+        this.emitFile(path.relative(options.context, content.outputFilePath), content.contents || [''], map);
     }
     content.writeFile().then(_ => {
       callback(null, source, map);
