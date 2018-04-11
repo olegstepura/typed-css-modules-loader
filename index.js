@@ -10,14 +10,10 @@ module.exports = function(source, map) {
   // Pass on query parameters as an options object to the DtsCreator. This lets
   // you change the default options of the DtsCreator and e.g. use a different
   // output folder.
-  var queryOptions = loaderUtils.getOptions(this);
-  var options;
-  var emitFile = true;
-  if (queryOptions) {
-    options = Object.assign({}, queryOptions);
-    emitFile = !options.noEmit;
-    delete options.noEmit;
-  }
+  var options = loaderUtils.getOptions(this) || {};
+  var context = options.context || this.context || this.rootContext;
+  var emitFile = !options.noEmit;
+  delete options.noEmit;
 
   var creator = new DtsCreator(options);
 
@@ -26,7 +22,7 @@ module.exports = function(source, map) {
   creator.create(this.resourcePath, source).then(content => {
     if (emitFile) {
         // Emit the created content as well
-        this.emitFile(path.relative(this.options.context, content.outputFilePath), content.contents || [''], map);
+        this.emitFile(path.relative(context, content.outputFilePath), content.contents || [''], map);
     }
     content.writeFile().then(_ => {
       callback(null, source, map);
