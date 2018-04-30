@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "loader-utils": "^1.1.0",
-    "typed-css-modules": "^0.2.0"
+    "typed-css-modules": "^0.3.4"
   }
 }
