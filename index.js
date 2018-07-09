@@ -13,9 +13,12 @@ module.exports = function(source, map) {
   var options = loaderUtils.getOptions(this) || {};
   var context = options.context || this.context || this.rootContext;
   var emitFile = !options.noEmit;
-  delete options.noEmit;
+  
+  // Make sure to not modify options object directly
+  var creatorOptions = JSON.parse(JSON.stringify(options));
+  delete creatorOptions.noEmit;
 
-  var creator = new DtsCreator(options);
+  var creator = new DtsCreator(creatorOptions);
 
   // creator.create(..., source) tells the module to operate on the
   // source variable. Check API for more details.
