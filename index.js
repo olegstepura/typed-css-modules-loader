@@ -15,7 +15,7 @@ module.exports = function(source, map) {
   var emitFile = !options.noEmit;
   
   // Make sure to not modify options object directly
-  var creatorOptions = JSON.parse(JSON.stringify(options));
+  var creatorOptions = Object.assign({}, options);
   delete creatorOptions.noEmit;
 
   var creator = new DtsCreator(creatorOptions);
