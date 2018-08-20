@@ -19,9 +19,10 @@ class. For more info on available options, please take a look here:
 const settings = {
   // ...
   module: {
-    preLoaders: [
+    loaders: [
       // ...
       {
+        enforce: 'pre',
         test: /\.css$/,
         exclude: /node_modules/,
         loader: 'typed-css-modules'
