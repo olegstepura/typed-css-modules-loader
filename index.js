@@ -1,6 +1,6 @@
-var path = require("path");
-var DtsCreator = require("typed-css-modules");
-var loaderUtils = require("loader-utils");
+var path = require('path');
+var DtsCreator = require('typed-css-modules');
+var loaderUtils = require('loader-utils');
 
 module.exports = function(source, map) {
   this.cacheable && this.cacheable();
@@ -29,7 +29,7 @@ module.exports = function(source, map) {
         // Emit the created content as well
         this.emitFile(
           path.relative(context, content.outputFilePath),
-          content.contents || [""],
+          content.contents || [''],
           map
         );
       }
