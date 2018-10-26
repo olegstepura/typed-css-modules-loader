@@ -13,7 +13,7 @@ module.exports = function(source, map) {
   var options = loaderUtils.getOptions(this) || {};
   var context = options.context || this.context || this.rootContext;
   var emitFile = !options.noEmit;
-  
+
   // Make sure to not modify options object directly
   var creatorOptions = Object.assign({}, options);
   delete creatorOptions.noEmit;
@@ -22,13 +22,21 @@ module.exports = function(source, map) {
 
   // creator.create(..., source) tells the module to operate on the
   // source variable. Check API for more details.
-  creator.create(this.resourcePath, source).then(content => {
-    if (emitFile) {
+  creator
+    .create(this.resourcePath, source)
+    .then(content => {
+      if (emitFile) {
         // Emit the created content as well
-        this.emitFile(path.relative(context, content.outputFilePath), content.contents || [''], map);
-    }
-    content.writeFile().then(_ => {
-      callback(null, source, map);
-    });
-  });
+        this.emitFile(
+          path.relative(context, content.outputFilePath),
+          content.contents || [''],
+          map
+        );
+      }
+
+      return content.writeFile().then(_ => {
+        callback(null, source, map);
+      });
+    })
+    .catch(callback);
 };
