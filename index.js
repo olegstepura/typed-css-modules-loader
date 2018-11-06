@@ -29,7 +29,7 @@ module.exports = function(source, map) {
         // Emit the created content as well
         this.emitFile(
           path.relative(context, content.outputFilePath),
-          content.contents || [''],
+          content.formatted || '',
           map
         );
       }
