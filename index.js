@@ -1,5 +1,5 @@
 var path = require('path');
-var DtsCreator = require('typed-css-modules');
+var DtsCreator = require('typed-css-modules').default;
 var loaderUtils = require('loader-utils');
 
 module.exports = function(source, map) {
